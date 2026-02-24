@@ -1,23 +1,28 @@
-#ifndef VECTOR_H 
-#define VECTOR_H 
+#ifndef VECTOR_H
+#define VECTOR_H
 
-#include <string>
-
-class Vector { // Створення класу Vector для представлення вектора у полярних координатах
+class Vector // РєР»Р°СЃ РґР»СЏ РїСЂРµРґСЃС‚Р°РІР»РµРЅРЅСЏ РІРµРєС‚РѕСЂР° Сѓ РїРѕР»СЏСЂРЅРёС… РєРѕРѕСЂРґРёРЅР°С‚Р°С…
+{
 private:
-    double length;          // Довжина вектора
-    double angleInDegrees;  // Кут у градусах
+    double r;      // РґРѕРІР¶РёРЅР°
+    double angle;  // РєСѓС‚ Сѓ СЂР°РґС–Р°РЅР°С…
 
 public:
-    // Конструктор
-    Vector(double l, double a); 
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂРё
+    Vector();                          // Р±РµР· РїР°СЂР°РјРµС‚СЂС–РІ
+    Vector(double r, double angle);    // Р· РїР°СЂР°РјРµС‚СЂР°РјРё
+    Vector(const Vector& other);       // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїС–СЋРІР°РЅРЅСЏ
 
-    // Методи обчислення
-    double calculateX() const;
-    double calculateY() const;
+    // Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
+    ~Vector();
 
-    // Метод для отримання опису об'єкта
-    std::string getPolarData() const;
+    // РњРµС‚РѕРґРё РґРѕСЃС‚СѓРїСѓ
+    double getR() const;
+    double getAngle() const;
+
+    // РњРµС‚РѕРґРё РѕР±С‡РёСЃР»РµРЅРЅСЏ РєРѕРѕСЂРґРёРЅР°С‚
+    double getX() const;
+    double getY() const;
 };
 
 #endif

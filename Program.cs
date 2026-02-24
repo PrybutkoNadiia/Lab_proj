@@ -1,28 +1,25 @@
 ﻿using System;
+using VectorLibrary;
 
-namespace Lab1
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main(string[] args)
-        {
-            // Встановлення кодування для коректного відображення української мови
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
+        // Створенння об'єктів за допомогою оператора new та виклик конструкторів
 
-            Console.WriteLine("--- Лабораторна робота 1.1 (Варіант 8) ---");
+        // Виклик конструктора без параметрів
+        Vector v1 = new Vector();
 
-            Vector myVector = new Vector(10.0, 45.0);
+        // Виклик конструктора з параметрами
+        Vector v2 = new Vector(5, Math.PI / 4);
 
-            Console.WriteLine(myVector.GetPolarData());
+        // Виклик конструктора копіювання
+        Vector v3 = new Vector(v2);
 
-            double x = myVector.CalculateX();
-            double y = myVector.CalculateY();
-
-            Console.WriteLine($"Координати кінця вектора: X = {x:F2}, Y = {y:F2}");
-
-            // Щоб консоль не закрилася одразу
-            Console.WriteLine("\nНатисніть будь-яку клавішу для виходу...");
-            Console.ReadKey();
-        }
+        Console.WriteLine("Вектор v2:");
+        Console.WriteLine("r = " + v2.R);
+        Console.WriteLine("кут = " + v2.Angle);
+        Console.WriteLine("X = " + v2.GetX());
+        Console.WriteLine("Y = " + v2.GetY());
     }
 }

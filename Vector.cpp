@@ -1,25 +1,51 @@
 #include "Vector.h"
 #include <cmath>
-#include <sstream>
-#include <iomanip>
 
-// Використовуємо число Пі з бібліотеки cmath або задаємо константу
-const double PI = 3.14159265358979323846;
-
-Vector::Vector(double l, double a) : length(l), angleInDegrees(a) {} // Ініціалізація довжини та кута в градусах
-
-double Vector::calculateX() const { // Перетворення кута з градусів у радіани
-    double radians = angleInDegrees * (PI / 180.0); 
-    return length * std::cos(radians); 
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂС–РІ
+Vector::Vector()
+{
+    r = 0;
+    angle = 0;
 }
 
-double Vector::calculateY() const { // Перетворення кута з градусів у радіани
-    double radians = angleInDegrees * (PI / 180.0);
-    return length * std::sin(radians);
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р· РїР°СЂР°РјРµС‚СЂР°РјРё
+Vector::Vector(double r, double angle)
+{
+    this->r = r;
+    this->angle = angle;
 }
 
-std::string Vector::getPolarData() const { // Формування рядка з інформацією про вектор
-	std::stringstream ss; // Використовуємо stringstream для зручного форматування рядка
-	ss << "Вектор: довжина = " << length << ", кут = " << angleInDegrees << " градусів"; // Форматування рядка з інформацією про вектор
-	return ss.str(); // Повертаємо сформований рядок
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїС–СЋРІР°РЅРЅСЏ
+Vector::Vector(const Vector& other)
+{
+    r = other.r;
+    angle = other.angle;
+}
+
+// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
+Vector::~Vector()
+{
+}
+
+// РњРµС‚РѕРґРё РґРѕСЃС‚СѓРїСѓ
+double Vector::getR() const
+{
+    return r;
+}
+
+double Vector::getAngle() const
+{
+    return angle;
+}
+
+// РћР±С‡РёСЃР»РµРЅРЅСЏ X
+double Vector::getX() const
+{
+    return r * cos(angle);
+}
+
+// РћР±С‡РёСЃР»РµРЅРЅСЏ Y
+double Vector::getY() const
+{
+    return r * sin(angle);
 }

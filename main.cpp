@@ -1,21 +1,22 @@
 #include <iostream>
-#include <iomanip>
-#include "Vector.h"
+#include "../StaticLib1/Vector.h"
 
-int main() {
-    // Встановлюємо підтримку української мови в консолі
-    setlocale(LC_ALL, "Ukrainian");
+int main()
+{
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂС–РІ
+    Vector v1;
 
-    // Створення об'єкта класу
-    Vector myVector(10.0, 45.0);
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р· РїР°СЂР°РјРµС‚СЂР°РјРё
+    Vector v2(5, 3.14159 / 4);
 
-    // Виведення даних об'єкта
-    std::cout << myVector.getPolarData() << std::endl;
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїС–СЋРІР°РЅРЅСЏ
+    Vector v3(v2);
 
-    // Обчислення та виведення координат
-    std::cout << std::fixed << std::setprecision(2);
-    std::cout << "Координата X кінця вектора: " << myVector.calculateX() << std::endl;
-    std::cout << "Координата Y кінця вектора: " << myVector.calculateY() << std::endl;
+    std::cout << "Р’РµРєС‚РѕСЂ v2:" << std::endl;
+    std::cout << "r = " << v2.getR() << std::endl;
+    std::cout << "РєСѓС‚ = " << v2.getAngle() << std::endl;
+    std::cout << "X = " << v2.getX() << std::endl;
+    std::cout << "Y = " << v2.getY() << std::endl;
 
     return 0;
 }

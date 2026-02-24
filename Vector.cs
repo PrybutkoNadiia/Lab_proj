@@ -1,35 +1,61 @@
 ﻿using System;
 
-namespace Lab1
+namespace VectorLibrary
 {
     public class Vector
     {
+        // Закриті поля (інкапсуляція)
+        private double r;      // довжина
+        private double angle;  // кут у радіанах
 
-        private double length;
-        private double angleInDegrees;
-
-        public Vector(double length, double angleInDegrees)
+        // Властивості тільки для читання
+        public double R
         {
-            this.length = length;
-            this.angleInDegrees = angleInDegrees;
+            get { return r; }
         }
 
-        public double CalculateX()
+        public double Angle
         {
-            // Переводимо градуси в радіани для системних функцій Math
-            double radians = angleInDegrees * (Math.PI / 180.0);
-            return length * Math.Cos(radians);
+            get { return angle; }
         }
 
-        public double CalculateY()
+        // 1. Конструктор без параметрів
+        public Vector()
         {
-            double radians = angleInDegrees * (Math.PI / 180.0);
-            return length * Math.Sin(radians);
+            r = 0;
+            angle = 0;
         }
 
-        public string GetPolarData()
+        // 2. Конструктор з параметрами
+        public Vector(double r, double angle)
         {
-            return $"Вектор: довжина = {length}, кут = {angleInDegrees}°";
+            this.r = r;
+            this.angle = angle;
+        }
+
+        // 3. Конструктор копіювання
+        public Vector(Vector other)
+        {
+            this.r = other.r;
+            this.angle = other.angle;
+        }
+
+        // Метод обчислення X
+        public double GetX()
+        {
+            return r * Math.Cos(angle);
+        }
+
+        // Метод обчислення Y
+        public double GetY()
+        {
+            return r * Math.Sin(angle);
+        }
+
+        // Деструктор
+        ~Vector()
+        {
+            // Виконується при знищенні об'єкта
         }
     }
 }
