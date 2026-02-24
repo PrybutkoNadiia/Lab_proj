@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Lab_1_2/VectorLibrary.csproj" />
+  <Project Path="StaticLib1/StaticLib1.vcxproj" Id="8a980f98-90d5-464d-b9b1-33fe3446258e" />
+  <Project Path="VectorApp.cpp/VectorApp.cpp.vcxproj" Id="135bf00b-6df3-466d-a065-1380f82546ff" />
+  <Project Path="VectorApp/VectorApp.csproj" />
+</Solution>
